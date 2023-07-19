@@ -6,6 +6,9 @@ public class ItemFactory {
 
         if (name.equalsIgnoreCase("FoodItem")) {
             System.out.println("FoodIteam");
+            System.out.println("FoodIteam");
+            System.out.println("FoodIteam");
+            System.out.println("FoodIteam");
         }
         return new FastfoodItem();
     }
