@@ -1,0 +1,45 @@
+USER AUTHENTICATION DETAILS
+	NORMAL USER:
+		user : normal
+		password : normal
+	
+	ADMIN USER:
+		user : admin
+		pass : admin
+
+
+-----------------------------------------------------------------
+endpoints : 
+	base URL : http://localhost:8080
+	
+___________________
+public access URL :
+	Post 	http://localhost:8080/signup
+				
+				request body:
+					{
+						"userName": "user-name",
+						"firstName": "firstname",
+						"lastName": "last-name",
+						"email": "test@gmail.com",
+						"password": "jfklasfdlh"
+					}
+					
+_______________________
+Normal User Access URL:
+	GET		http://localhost:8080/api/users/{userId}
+	PUT		http://localhost:8080/api/users/{userId}
+				request body:
+					{
+						"userName": "user-name",
+						"firstName": "firstname",
+						"lastName": "last-name",
+						"email": "testobaltech.com",
+						"password": "12345"
+					}
+	DELETE	http://localhost:8080/api/users/{userId}
+	
+________________	
+Admin access URL:
+	GET		http://localhost:8080/admin/users				//access list of users;
+	
