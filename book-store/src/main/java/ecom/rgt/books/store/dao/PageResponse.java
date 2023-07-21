@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 public class PageResponse {
 	
-	private List<Books> listOfBooks;
+	private List<Books> books;
 	
 	private Integer PageNumber;
 	

@@ -43,7 +43,7 @@ public class BookController {
 	}
 	
 	@GetMapping("/book")
-	public ResponseEntity<PageResponse> listOfBooks(
+	public ResponseEntity<PageResponse> getBooks(
 			@RequestParam(value = "pageNumber", defaultValue = "1", required = false) Integer pageNumber,
 			@RequestParam(value = "pageSize", defaultValue = "2", required = false) Integer pageSize){
 		PageResponse pageResponse = this.bookService.listOfBooks(pageNumber, pageSize);

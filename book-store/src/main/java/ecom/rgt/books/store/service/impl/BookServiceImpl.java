@@ -61,7 +61,7 @@ public class BookServiceImpl implements BookService {
 		List<Books> content = bookpage.getContent();
 		
 		PageResponse bookPagination = new PageResponse();
-		bookPagination.setListOfBooks(content);
+		bookPagination.setBooks(content);
 		bookPagination.setPageNumber(bookpage.getNumber());
 		bookPagination.setPageSize(bookpage.getSize());
 		bookPagination.setTotalElement(bookpage.getTotalElements());
