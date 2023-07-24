@@ -25,7 +25,7 @@ public class HelperImpl implements Helper {
 	}
 	
 	
-	//input title,desc,dueDate,priority from user.
+	//input title,description,dueDate,priority from user.
 	@Override
 	public Task inputTaskData() {
 		Task task= new Task();
@@ -48,7 +48,7 @@ public class HelperImpl implements Helper {
 			task.setDescription(desc);
 			task.setPriority(priority);
 			task.setDueDate(dateString);
-			task.setStatus(true);
+			task.setStatus(false);
 		}
 		catch(ParseException e) {
 			e.printStackTrace();
@@ -68,7 +68,7 @@ public class HelperImpl implements Helper {
 			System.out.print("Project Description: ");
 			String projectDesc = sc.nextLine();
 			
-			System.out.println("project title:"+projectName+" projectDesc:"+projectDesc);
+//			System.out.println("project title:"+projectName+" projectDesc:"+projectDesc);
 			
 			project.setProjectTitle(projectName);
 			project.setProjectDescription(projectDesc);
@@ -148,10 +148,10 @@ public class HelperImpl implements Helper {
 		System.out.println("!!! Main Menu !!!");
 		System.out.println("1.) Add Project");
 		System.out.println("2.) Add Task");
-		System.out.println("3.) Show Task with with high priority.");
+		System.out.println("3.) Show Tasks");
 		System.out.println("4.) show tasks of a project.");
-		System.out.println("5.) mark a task done.");
-		System.out.println("5.) exit");
+		System.out.println("5.) Mark a task complete");
+		System.out.println("6.) exit");
 		System.out.print("Enter choice: ");
 		choice = sc.nextInt();
 		return choice;
@@ -170,11 +170,22 @@ public class HelperImpl implements Helper {
 		else {
 			for(int i=0; i<tasks.size();i++)
 			{
-				System.out.println(tasks.get(i));
+				System.out.println(i+1 + ".) " +tasks.get(i));
 			}
 		}
 		
 	}
+
+	@Override
+	public Task selectTask(List<Task> tasks) {
+		System.out.print("enter choice: ");
+		int choice = sc.nextInt();
+		if(choice>0 && choice<=tasks.size()) {
+			return tasks.get(choice-1);
+		}
+		else return null;
+	}
+
 
 	//show successfully added message.
 	@Override

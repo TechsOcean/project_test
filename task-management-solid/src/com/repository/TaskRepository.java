@@ -16,4 +16,8 @@ public interface TaskRepository {
 	public Task createTask(Task task);
 	
 	public List<Task> getTasks();
+	
+	public int getTaskIndex(Task task);
+	
+	public void updateTask(int index, Task task);
 }

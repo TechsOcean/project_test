@@ -11,4 +11,6 @@ public interface TaskService {
 	public List<Task> addTaskInProject(Project project);
 	
 	public List<Task> getTasks();
+	
+	public Task updateTask(Task task);
 }

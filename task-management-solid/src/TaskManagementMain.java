@@ -64,8 +64,16 @@ public class TaskManagementMain {
 				helperService.printTasks(tasksOfProject);
 				break;
 				
-			//marking a task done.
+			//update a task done.
 			case 5:
+				List<Task> tasks2 = taskService.getTasks();
+				helperService.printTasks(tasks2);
+				if(tasks2!=null && tasks2.size()!=0) {
+					 Task selectedTask=null;
+					 selectedTask= helperService.selectTask(tasks2);
+					 taskService.updateTask(selectedTask);
+					 System.out.println("task updated successfully!!");
+				}
 				
 				break;
 				

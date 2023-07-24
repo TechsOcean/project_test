@@ -10,7 +10,7 @@ public class Task implements Comparable<Task>{
 	private String description;
 	private String dueDate;
 	private Integer priority;
-	private boolean status;
+	private boolean active;
 	private Project project;
 	
 	
@@ -46,10 +46,10 @@ public class Task implements Comparable<Task>{
 		this.priority = priority;
 	}
 	public boolean isStatus() {
-		return status;
+		return active;
 	}
 	public void setStatus(boolean status) {
-		this.status = status;
+		this.active = status;
 	}
 	
 	
@@ -57,7 +57,7 @@ public class Task implements Comparable<Task>{
 	@Override
 	public String toString() {
 		return "title=" + title + ", description=" + description + ", dueDate=" + dueDate + ", priority="
-				+ priority ;
+				+ priority + " task-completed=" + active;
 	}
 	
 	

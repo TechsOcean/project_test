@@ -43,5 +43,19 @@ public class TaskServiceImpl implements TaskService {
 		for(Task task : projectTasks) System.out.println(task);
 		return projectTasks;
 	}
-
+	
+	@Override
+	public Task updateTask(Task task) {
+		int taskIndex = taskRepo.getTaskIndex(task);
+		if(taskIndex < 0)
+		{
+			System.out.println("please select an existing task to update");
+			return null;
+		}
+		else {
+			task.setStatus(true);
+			taskRepo.updateTask(taskIndex, task);
+		}
+		return null;
+	}
 }

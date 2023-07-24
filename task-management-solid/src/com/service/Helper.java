@@ -31,4 +31,6 @@ public interface Helper {
 	public void printTasks(List<Task> tasks);
 	
 	public Project selectProject(List<Project> projects);
+	
+	public Task selectTask(List<Task> tasks);
 }

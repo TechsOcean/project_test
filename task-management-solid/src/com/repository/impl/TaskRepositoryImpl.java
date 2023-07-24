@@ -28,4 +28,17 @@ public class TaskRepositoryImpl implements TaskRepository{
 		return task2;
 	}
 	
+	@Override
+	public int getTaskIndex(Task task) {
+		int taskIndex = tasks.indexOf(task);
+		return taskIndex;
+	}
+
+	@Override
+	public void updateTask(int index, Task task) {
+		tasks.set(index, task);
+	}
+	
+	
+	
 }
