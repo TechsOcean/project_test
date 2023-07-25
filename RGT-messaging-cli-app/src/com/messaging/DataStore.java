@@ -8,14 +8,6 @@ public class DataStore {
 		this.id = 0;
 	}
 	
-	public void saveData() {
-		
-	}
-	
-	public void loadData() {
-		
-	}
-	
 	public int generateTweetId() {
 		return ++id;
 	}

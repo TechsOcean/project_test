@@ -35,22 +35,10 @@ public class User {
 		this.following = new ArrayList<>();
 		this.tweets = new ArrayList<>();
 	}
-
-	public String follow() {
-		return null;
-	}
-	
-	public String unfollow() {
-		return null;
-	}
 	
 	public void postTweet(Tweet tweet) {
 		if(tweets == null) tweets = new ArrayList<>();
 		tweets.add(tweet);
-	}
-	
-	public String deleteTweet() {
-		return null;
 	}
 	
 	/*

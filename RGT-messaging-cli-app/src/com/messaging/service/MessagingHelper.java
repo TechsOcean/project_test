@@ -9,11 +9,23 @@ import com.messaging.LoginResponse;
 import com.messaging.Tweet;
 import com.messaging.User;
 
+/**
+ * @author Bharat
+ *contains methods to take user input and show output to user.
+ *public int mainMenu()  --> show main menu to user and return the selected option.
+ *public User signUpForm()  --> take signup details from user and return the user entity.
+ *public void signUpMessage(boolean bool) --> if argument is true means signup successful. else signup fail message.
+ *public String[] loginForm()  --> take username,password and return as String[] array.
+ *
+ *
+ */
+
 public class MessagingHelper {
 	
 	DataStore dataStore = new DataStore();
 	Scanner sc = new Scanner(System.in);
 	
+	//show main menu to user and return the selected option.
 	public int mainMenu() {
 		System.out.println("1.) Register");
 		System.out.println("2.) Login");
@@ -25,6 +37,7 @@ public class MessagingHelper {
 		return choice;
 	}
 	
+	//take signup details from user and return the user entity.
 	public User signUpForm() {
 		sc.nextLine();
 		System.out.print("Enter Name: ");
@@ -43,6 +56,7 @@ public class MessagingHelper {
 		return user;
 	}
 	
+	//if argument is true means signup successful. else signup fail message.
 	public void signUpMessage(boolean bool) {
 		if(bool) {
 			System.out.println("user added successfully");
@@ -52,6 +66,7 @@ public class MessagingHelper {
 		}
 	}
 	
+	//take username,password and return as String[] array.
 	public String[] loginForm() {
 		sc.nextLine();
 		System.out.print("Enter userName: ");
@@ -86,6 +101,7 @@ public class MessagingHelper {
 		return choice;
 	}
 	
+	// take content input from user and add all necesasy info (tweetId, timestamp, author) and retur Tweet entity.
 	public Tweet createTweet(User user) {
 		sc.nextLine();
 		System.out.println("what you'd like to tweet!!");
@@ -137,6 +153,7 @@ public class MessagingHelper {
 		return userName;
 	}
 	
+	//if user is found that these two options are visible.
 	public int userOperation() {
 		System.out.println("    1.) follow this user");
 		System.out.println("    2.) main menu");
@@ -144,15 +161,16 @@ public class MessagingHelper {
 		return loginedUserChoice;
 	}
 
+	//print the iist of tweets.
 	public void showTweets(List<Tweet> tweets) {
 		for(Tweet tweet : tweets) System.out.println(tweet);
 		
 	}
 
+	// to search a particular tweet, inputing tweet id from user;
 	public Integer inputTweetId() {
 		System.out.print("Enter Tweet id to search: ");
 		Integer tweetId = sc.nextInt();
 		return tweetId;
 	}
-	
 }

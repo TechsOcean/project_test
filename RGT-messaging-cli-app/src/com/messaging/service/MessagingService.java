@@ -11,6 +11,17 @@ import com.messaging.LoginResponse;
 import com.messaging.Tweet;
 import com.messaging.User;
 
+/**
+ * @author Bharat
+ * boolean registerUser(User user)
+ * LoginResponse login(String[] loginDetail)
+ * void saveTweet(Tweet tweet, String userName)
+ * List<String> getUserNames()
+ * User searchUser(String userName)
+ * void follow(User loginUser, User followedUser)
+ * Tweet searchTweet(Integer tweetId)
+ */
+
 public class MessagingService {
 	private Map<String, User> users;
 	private List<Tweet> tweets;
@@ -20,6 +31,7 @@ public class MessagingService {
 		this.users = new HashMap<>();
 	}
 	
+	
 	public boolean registerUser(User user) {
 		String userName = user.getUserName();
 		if(!users.containsKey(userName)) {
@@ -28,6 +40,7 @@ public class MessagingService {
 		}
 		else return false;
 	}
+	
 	
 	public LoginResponse login(String[] loginDetail) {
 		String userName = loginDetail[0];
@@ -48,16 +61,19 @@ public class MessagingService {
 		return loginResponse;
 	}
 	
+	
 	public void saveTweet(Tweet tweet, String userName) {
 		User user = users.get(userName);
 		user.postTweet(tweet);
 		tweets.add(tweet);
 	}
 	
+	
 	public List<String> getUserNames(){
 		List<String> userNames = new ArrayList<String>(users.keySet());
 		return userNames;
 	}
+	
 	
 	public User searchUser(String userName) {
 		if(users.containsKey(userName)) {
@@ -65,6 +81,7 @@ public class MessagingService {
 		}
 		else return null;
 	}
+	
 	
 	public void follow(User loginUser, User followedUser) {
 		User user = users.get(loginUser.getUserName());
@@ -75,6 +92,7 @@ public class MessagingService {
 	    user2.getFollowers().add(user);
 	    users.put(followedUser.getUserName(), user2);
 	}
+	
 	
 	public Tweet searchTweet(Integer tweetId) {
 		for(Tweet tweet : tweets)
