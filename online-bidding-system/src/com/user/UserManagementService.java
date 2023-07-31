@@ -6,11 +6,11 @@ import java.util.List;
 import com.item.Item;
 
 public class UserManagementService {
-	private List<User> users;
+	private static List<User> users=new ArrayList<>();
 	
-	public UserManagementService() {
-		this.users = new ArrayList<>();
-	}
+//	public UserManagementService() {
+//		this.users = new ArrayList<>();
+//	}
 	
 	public void createUser(User user) {
 		users.add(user);
@@ -20,15 +20,13 @@ public class UserManagementService {
 	{
 		for(User u : users) {
 			if(u.getUserName().equals(user.getUserName())) {
-				u.addBid(bidAmount);
+				u.getBiddingHistory().add(bidAmount);
 			}
 		}
 	}
 	
 	public User authenticateUser(User user) {
-//		System.out.println("Enter user>>"+user);
 		for(User u : users) {
-//			System.out.println(u);
 			if(u.getUserName().equals(user.getUserName()) && u.getPassword().equals(user.getPassword())) return u;
 		}
 		System.out.println("authentication failed, please try again!!");

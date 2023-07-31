@@ -5,6 +5,6 @@ import com.user.User;
 
 public class NotificationService {
 	public void notifyUser(User user, Item item) {
-		System.out.println(user.getUserName() + " outbides you. item info : " + item.getName() + ", currentBid: " + item.getCurrentHighestBid());
+		System.out.println(item.getHighestBidder().getUserName() + " outbides you. item info : " + item.getName() + ", currentBid: " + item.getCurrentHighestBid());
 	}
 }

@@ -19,13 +19,15 @@ public class BiddingSystemMain {
 			mainMenuChoice = biddingService.mainMenu();
 			
 			switch (mainMenuChoice) {
+			//register user
 			case 1:
 				System.out.println("\nRegistration form!!");
 				registeredUser = biddingService.getUserDetail();
 				userService.createUser(registeredUser);
 				System.out.println("registration successful!");
 				break;
-				
+			
+			//login user
 			case 2:
 				System.out.println("\nlogin form!!");
 				loginedUser = biddingService.getUserDetail();
@@ -36,7 +38,8 @@ public class BiddingSystemMain {
 					loginedUserService.loginService();
 				}
 				break;
-				
+			
+			//exit;
 			case 3:
 				System.out.println("\nvisit again!!");
 				break;

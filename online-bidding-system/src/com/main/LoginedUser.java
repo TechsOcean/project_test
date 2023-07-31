@@ -7,6 +7,12 @@ import com.item.ItemManagementService;
 import com.service.BiddingService;
 import com.user.User;
 
+/**
+ * contains bidding services;
+ * 	
+ * @author Bharat
+ */
+
 public class LoginedUser {
 	private BiddingService biddingService = new BiddingService();
 	private ItemManagementService itemService = new ItemManagementService();
@@ -17,25 +23,27 @@ public class LoginedUser {
 		this.loginedUser=loginedUser;
 	}
 	
+	//handle all the operations a login user can do.
 	public void loginService() {
 		
 		int loginedUserChoice;
 		
 		do {
-			loginedUserChoice = biddingService.loginedMenu();
-			
+			loginedUserChoice = biddingService.loginedMenu(); // loginMenu-> show available options a login user can do
+															  //and return the selected option.
 			switch (loginedUserChoice){
 			
 			//search items;
 			case 1:
-				biddingService.bidOption(loginedUser);
+				biddingService.bid(loginedUser);
 				break;
 				
 				
 			//view bidding history;
 			case 2:
 				List<Double> biddingHistory = loginedUser.getBiddingHistory();
-				System.out.println(biddingHistory);
+				if(biddingHistory.size() == 0) System.out.println("no bidding done yet.");
+				else System.out.println(biddingHistory);
 				break;
 			
 				
@@ -49,12 +57,12 @@ public class LoginedUser {
 				break;
 							
 			//logout;
-			case 4:
+			case 5:
 				System.out.println("\nlogout successfully!!\n");
 				break;
 			
 			//print items;
-			case 5:
+			case 4:
 				itemService.getItems();
 				break;
 			default:
@@ -63,6 +71,6 @@ public class LoginedUser {
 			
 			biddingService.printSeprator();
 		}
-		while(loginedUserChoice != 4);
+		while(loginedUserChoice != 5);
 	}
 }

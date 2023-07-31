@@ -44,7 +44,8 @@ public class BiddingService {
 		System.out.print("1. Search Items \r\n"
 				+ "2. View Bidding History \r\n"
 				+ "3. Add item for auction.\n"
-				+ "4. Logout \r\n"
+				+ "4. show available items\n"
+				+ "5. Logout \r\n"
 				+ "Enter choice: ");
 		int choice = sc.nextInt();
 		return choice;
@@ -53,8 +54,9 @@ public class BiddingService {
 	public Item selectItems(List<Item> items) {
 		int i=1;
 		
-		if(items.size() == 0) {
+		if(items==null || items.size() == 0) {
 			System.out.println("no item exist with this keyword!!");
+			return null;
 		}
 		
 		for(Item item : items) {
@@ -81,10 +83,10 @@ public class BiddingService {
 		return selectedItem;
 	}
 	
-	public void bidOption(User user) {
+	public void bid(User user) {
 		Item item = searchItem();
 		if(item != null) {
-			System.out.println("Enter a bid amount: ");
+			System.out.println("Enter a bid amount, greater than ("+item.getCurrentHighestBid()+") : ");
 			double newBid = sc.nextDouble();
 			
 			System.out.println("Select bidding strategy from below list:");
@@ -105,8 +107,6 @@ public class BiddingService {
 			default:
 				throw new IllegalArgumentException("Unexpected value: " + bidStrategy);
 			}
-			
-			System.out.println("Bid placed successful. your bid amount: Rs " + newBid);
 		}
 	}
 	

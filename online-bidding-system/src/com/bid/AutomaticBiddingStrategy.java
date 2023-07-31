@@ -15,8 +15,9 @@ public class AutomaticBiddingStrategy implements BiddingStrategy {
 		double currentHighestBid = item.getCurrentHighestBid();
 		currentHighestBid++;
 		if(currentHighestBid<=maxAmount) {
-			itemService.bidAmount(item,user, currentHighestBid);
+			itemService.updateItem(item, user, maxAmount);
 			userService.updateUser(user, currentHighestBid);
+			System.out.println("bid placed successful. your bid amount : Rs "+currentHighestBid);
 		}
 		else {
 			NotificationService notificationService = new NotificationService();

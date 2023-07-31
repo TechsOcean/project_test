@@ -18,20 +18,25 @@ public class ItemManagementService {
 		auction.addItem(item);
 	}
 	
-	public void bidAmount(Item item, User user, double bidAmount) {
-		List<Item> items = auction.getItems();
-		int itemIdx = items.indexOf(item);
-		item.setCurrentHighestBid(bidAmount);
-		item.setHighestBidder(user);
-		items.set(itemIdx, item);
-		auction.setItems(items);
-		
-		
+//	public void bidAmount(Item item, User user, double bidAmount) {
+//		List<Item> items = auction.getItems();
+//		int itemIdx = items.indexOf(item);
+//		item.setCurrentHighestBid(bidAmount);
+//		item.setHighestBidder(user);
+//		items.set(itemIdx, item);
+//		auction.setItems(items);
+//		
+//	}
+	
+	public void updateItem(Item item, User user, double bidAmount) {
+//		System.out.println("itemmgmt --> updteItem");
+		auction.updateItem(item, user, bidAmount);
 	}
 	
 	public void getItems(){
 		List<Item> items = auction.getItems();
-		System.out.println(items);
+		if(items.size() == 0) System.out.println("no item available to display");
+		items.forEach(item -> System.out.println(item));
 	}
 	
 	public List<Item> searchItem(String keyword){

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.item.Item;
+import com.user.User;
 
 public class Auction {
 	
@@ -27,7 +28,14 @@ public class Auction {
 		items.add(item);
 	}
 
-	
+	public void updateItem(Item item, User highestBidder, double highestBid) {
+		for(Item it : items) {
+			if(it.getName().equals(item.getName()) && it.getDescription().equals(item.getDescription())) {
+				it.setCurrentHighestBid(highestBid);
+				it.setHighestBidder(highestBidder);
+			}
+		}
+	}
 	/*
 	 * getters and setters;
 	 */
